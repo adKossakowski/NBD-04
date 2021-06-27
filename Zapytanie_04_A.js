@@ -1,0 +1,2 @@
+ bmi_fun = {$function: {body: function(w, h) {return w / h * h}, args: ["$weight", "$height"], lang: "js"}};
+ printjson(db.people.aggregate([{"$group": {_id: "$nationality", "aveBmi": {"$avg": bmi_fun}, "maxBmi": {$max: bmi_fun}, "minBmi": {$min: bmi_fun}}}]).toArray());

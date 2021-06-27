@@ -1,0 +1,1 @@
+ printjson(db.people.aggregate([{$group: {_id: "$sex", ave_height: {$avg: {"$toDouble": "$height"}}, ave_weight: {$avg: {"$toDouble": "$weight"}}}}]).toArray());
